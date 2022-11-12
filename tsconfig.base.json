@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		"target": "ES2017",
+		"module": "CommonJS",
+		"moduleResolution": "node",
+
+		"strict": true,
+		"alwaysStrict": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"declaration": false,
+
+		"removeComments": true,
+
+		"strictBindCallApply": true,
+		"strictFunctionTypes": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"noImplicitAny": false,
+		"downlevelIteration": true,
+
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"noErrorTruncation": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"baseUrl": ".",
+
+		"plugins": [{ "transform": "typescript-transform-paths", "useRootDirs": true }],
+		"preserveSymlinks": true,
+
+		"paths": {
+			"client/*": ["./client/src/*"],
+			"shared/*": ["./shared/src/*"],
+			"server/*": ["./server/src/*"]
+		}
+	},
+	"exclude": ["**/dist"]
+}

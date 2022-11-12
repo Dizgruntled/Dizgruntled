@@ -1,0 +1,18 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "dist",
+		"jsx": "react-jsx",
+		"module": "esnext",
+		"baseUrl": ".",
+		"rootDir": "src",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"paths": {
+			"client/*": ["./src/*"],
+			"shared/*": ["../shared/src/*"]
+		},
+		"resolveJsonModule": true
+	},
+	"references": [{ "path": "../shared" }],
+	"include": ["./src", "custom.d.ts", "assets/GruntInfo.ts"]
+}

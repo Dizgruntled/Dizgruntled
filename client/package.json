@@ -1,0 +1,27 @@
+{
+	"name": "@dizgruntled/client",
+	"version": "0.1.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@zip.js/zip.js": "^2.6.28",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"styled-components": "^5.3.3",
+		"twgl.js": "^5.0.1"
+	},
+	"devDependencies": {
+		"@types/react": "^17.0.33",
+		"@types/react-dom": "^17.0.10",
+		"@types/styled-components": "4.0.3",
+		"@vitejs/plugin-react": "^1.0.7",
+		"typescript": "^4.4.4",
+		"vite": "^2.7.2",
+		"vite-plugin-react-svg": "^0.2.0",
+		"vite-plugin-svgr": "^2.2.1",
+		"vite-tsconfig-paths": "^3.3.17"
+	}
+}

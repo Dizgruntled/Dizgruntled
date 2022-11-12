@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Days+One&family=Montserrat&display=swap" rel="stylesheet">
+	<script type='text/javascript' src='//www.midijs.net/lib/midi.js'></script>
+	<meta name="viewport" content="width=731,user-scalable=no" />
+	<meta name="description" content="A web-based, open-source remake of Gruntz."/>
+	<title>Dizgruntled</title>
+	<style>
+		@font-face {
+			font-family: 'Comic';
+			src:  url(assets/sundaycomics-bb.regular.ttf);
+		}
+		@font-face {
+			font-family: 'Comic';
+			src:  url(assets/sundaycomics-bb.bold.ttf);
+			font-weight: bold;
+		}
+		html {
+			background: #1F1333;
+			font-family: 'Comic';
+			height: 100%;
+		}
+
+		body {
+			background: url(assets/Background.svg);
+			margin: 0;
+			height: 100%;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body oncontextmenu="return false;">
+	<div id="root"></div>
+	<script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
