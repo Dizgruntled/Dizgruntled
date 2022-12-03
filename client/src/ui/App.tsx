@@ -162,40 +162,6 @@ export default function () {
 				</TextContainer>
 			</Section>
 			<Section>
-				<TopBar>Known Issues</TopBar>
-				<TextContainer>
-					<ul>
-						<li>Scroll map when teleporting a selected grunt</li>
-						<li>Enemy grunts should wander when idle</li>
-						<li>Nerfgun deflection fixes, direction and allow early slide</li>
-						<li>Alert enemies when your ghost powerup fails</li>
-						<li>Missing Grunt voices during attack, walk etc.</li>
-						<li>Missing machine / shredder animations</li>
-						<li>Toob jumping in/out water should splash</li>
-						<li>Rolling balls sinking should splash</li>
-						<li>Powerup ending soon animations</li>
-						<li>Grunt idle animations & voices</li>
-						<li>Attack idle should have a 5s timeout</li>
-						<li>Attack animation variants</li>
-						<li>Fort should have collision</li>
-						<li>Grunt footstep noise (spring, toobz etc.)</li>
-						<li>Grunts should fade out on death & puddle appear slowly</li>
-						<li>Correct toy noises</li>
-						<li>Correct speaking durations</li>
-						<li>
-							Grunt should not walk to a tile on left-click/long-press if they can't
-							use their tool/toy there
-						</li>
-						<li>
-							If a Brick Layer is standing on a metal tile they should be able to move
-							away first to fill it in
-						</li>
-						<li>Spotlight doesn't blend correctly</li>
-						<li>There are green pixels in some grunt animations</li>
-					</ul>
-				</TextContainer>
-			</Section>
-			<Section>
 				<TopBar>Known Deviations from Original Gruntz</TopBar>
 				<TextContainer>
 					<ul>
