@@ -174,7 +174,6 @@ export class Level {
 			const delta = time - lastTime;
 
 			if (this.pauseTime == undefined) {
-				this.registry.time = time;
 				if (lastTime > -1 && delta > 5000) {
 					// It's been too long since we last simulated a frame, pause the game and resume from the last time
 					this.pauseTime = lastTime;
@@ -190,7 +189,8 @@ export class Level {
 
 				const { x, y } = this.input.getScroll();
 				this.setScroll(x * delta * 0.5, y * delta * 0.5);
-				this.update(lastTime);
+				this.update(lastTime, time);
+				this.registry.time = time;
 				if (backTileDrawer) {
 					backTileDrawer(this.registry.time, {
 						x: this.scrollOffset.x / 5 + this.registry.time / 50,
@@ -292,9 +292,10 @@ export class Level {
 			}
 		}
 	}
-	update(lastTime: number) {
+	update(lastTime: number, nextTime: number) {
 		let frame = this.registry.findFirstTaskFrameAfter(lastTime);
-		while (frame && frame.time <= this.registry.time) {
+		while (frame && frame.time <= nextTime) {
+			this.registry.time = frame.time;
 			for (let i = 0; i < frame.tasks.length; i++) {
 				const task = frame.tasks[i];
 				if (task.cancelTime == undefined) {
@@ -384,6 +385,13 @@ export class Level {
 					case 'Help':
 						this.pauseTime = this.registry.time;
 						this.hooks.setHelpText(effect.text);
+						break;
+					case 'Scroll':
+						console.log('WHAT', effect.position.x, effect.position.y);
+						this.setScroll(
+							effect.position.x - SCREEN_CENTER.x - this.scrollOffset.x,
+							effect.position.y - SCREEN_CENTER.y - this.scrollOffset.y,
+						);
 						break;
 					case 'Sound':
 						this.sounds.playSound(

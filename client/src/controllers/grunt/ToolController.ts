@@ -331,6 +331,11 @@ export class ToolController extends LogicController<Grunt> {
 			position: coordToPosition(target),
 			fast: false,
 		});
+		this.edit(logic, {
+			action: {
+				kind: 'Idle',
+			},
+		});
 		this.Grunt.checkIdle(logic);
 	}
 	useWand(logic: Grunt) {

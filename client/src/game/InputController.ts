@@ -45,7 +45,6 @@ export class InputController {
 	pressTimeout = -1;
 	dragBox?: Rect;
 	dragItem?: DragItem;
-	pointers: (Point | undefined)[] = [undefined, undefined, undefined];
 
 	constructor(readonly level: Level) {}
 	onKeyDown = (key: string) => {

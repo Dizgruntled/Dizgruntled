@@ -9,10 +9,8 @@
 		"lib": ["DOM", "DOM.Iterable", "ESNext"],
 		"paths": {
 			"client/*": ["./src/*"],
-			"shared/*": ["../shared/src/*"]
 		},
 		"resolveJsonModule": true
 	},
-	"references": [{ "path": "../shared" }],
-	"include": ["./src", "custom.d.ts", "assets/GruntInfo.ts"]
+	"include": ["./src", "custom.d.ts"]
 }

@@ -309,15 +309,20 @@ export class GruntController extends LogicController<Grunt> {
 	}
 	teleport(logic: Grunt, target: Point) {
 		this.Move.exitTile(logic);
+		const position = coordToPosition(target);
 		this.edit(logic, {
 			action: {
 				kind: 'Enter',
 			},
 			actionTime: this.registry.time,
-			position: coordToPosition(target),
+			position,
 		});
 		if (logic.team == 0) {
 			this.speak(logic.id, `VOICES/ENTRANCEZ/`, ENTRY_VOICES);
+			this.registry.effects.push({
+				kind: 'Scroll',
+				position: { ...position },
+			});
 		}
 		this.schedule(TELEPORT_SQUASH_TIME, 'finishTeleport', logic, undefined, target);
 	}

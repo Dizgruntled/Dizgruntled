@@ -81,7 +81,7 @@ export async function loadFiles(
 		} else {
 			zzzProgress = amount;
 		}
-		setProgress(Math.floor(((rezProgress + vrzProgress + zzzProgress) / TOTAL_SIZE) * 50));
+		setProgress(Math.floor(((rezProgress + vrzProgress + zzzProgress) / TOTAL_SIZE) * 100));
 	};
 	await setupDb();
 	loadFile('rez', setFileProgress, onLoad);

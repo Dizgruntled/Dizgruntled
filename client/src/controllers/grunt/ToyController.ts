@@ -247,7 +247,7 @@ export class ToyController extends LogicController<Grunt> {
 					this.spawn<Grunt>({
 						kind: 'Grunt',
 						facing: 'SOUTH',
-						health: 2,
+						health: 5,
 						stamina: 20,
 						flight: 20,
 						action: {

@@ -1,8 +1,8 @@
 import { DIRECTIONS } from 'client/data/data';
 import { getToolInfo } from 'client/data/GruntInfo';
-import { BaseLogic, Grunt, GruntPuddle, Pickup, WalkTask } from 'client/logic/Logic';
+import { BaseLogic, Grunt, GruntPuddle, Pickup, TimeBomb, WalkTask } from 'client/logic/Logic';
 import { LogicController } from 'client/logic/LogicController';
-import { getDistance, getSquareDistance, pointAdd, pointEquals } from 'client/utils/math';
+import { getDistance, getSquareDistance, pointAdd, pointEquals, pointSub } from 'client/utils/math';
 import { Point } from 'client/utils/Point';
 
 export const RING: Point[] = [
@@ -109,7 +109,7 @@ export class AIController extends LogicController<Grunt> {
 			return;
 		}
 		if (logic.ai != 'PostGuard') {
-			if (this.findEnemy(logic)) {
+			if (logic.stamina == 20 && this.findEnemy(logic)) {
 				return;
 			}
 		}
@@ -138,6 +138,23 @@ export class AIController extends LogicController<Grunt> {
 				const task = this.getRetreatTask(logic);
 				if (task && this.Move.walk(logic, task)) {
 					return;
+				}
+				break;
+			case 'TimeBomb':
+				const timeBombs = this.registry.getLogicsNear<TimeBomb>(logic.coord, 1, 'TimeBomb');
+				if (timeBombs[0]) {
+					const dir = pointSub(logic.coord, timeBombs[0].coord);
+					const target = pointAdd(logic.coord, dir);
+					const flood = this.Grunt.getFlood(logic, target);
+					if (flood.findPath(logic.coord)) {
+						this.Move.walk(logic, {
+							mesh: flood.getMesh(),
+							target,
+							useTool: false,
+							useToy: false,
+						});
+						return;
+					}
 				}
 				break;
 		}

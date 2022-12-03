@@ -144,8 +144,9 @@ export class PickupController extends LogicController<Pickup> {
 			2,
 		);
 		const isMegaphone = logic.item == 'MEGAPHONEZ';
+		const nextMegaphoneItem = team.megaphoneItems[team.megaphoneOffset];
 		const soundName = this.getSoundName(
-			isMegaphone ? logic.megaphoneItem! : logic.item == 'TOYBOX' ? logic.toy! : logic.item,
+			isMegaphone ? nextMegaphoneItem : logic.item == 'TOYBOX' ? logic.toy! : logic.item,
 		);
 		this.speak(
 			grunt.id,
@@ -215,6 +216,7 @@ export class PickupController extends LogicController<Pickup> {
 				BRICK: 'BRICKZ',
 				GOOBER: 'GOOBERZ',
 				GUNHAT: 'GUNHATZ',
+				NERFGUN: 'NERFGUNZ',
 				JUMPROPE: 'JUMPROPEZ',
 				POGOSTICK: 'POGOSTICKZ',
 				ROCK: 'ROCKZ',

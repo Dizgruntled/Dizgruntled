@@ -72,7 +72,7 @@ export class AttackController extends LogicController<Grunt> {
 		if (enemy.team == logic.team || (logic.team > 0 && enemy.team > 0)) {
 			return false;
 		}
-		if (this.Death.isDying(enemy)) {
+		if (this.Death.isDying(enemy) || enemy.health == 0) {
 			return false;
 		}
 		if (enemy.powerup == 'GHOST') {
@@ -309,7 +309,7 @@ export class AttackController extends LogicController<Grunt> {
 	}
 	chargeStamina(logic: Grunt, attack = false) {
 		const info = getToolInfo(this.Tool.getTool(logic));
-		if (info.recharge == 0) {
+		if (info.recharge == 0 || logic.powerup == 'ROIDZ') {
 			return;
 		}
 		this.edit(logic, {

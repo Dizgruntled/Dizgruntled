@@ -48,7 +48,9 @@ export class SwitchController extends LogicController<Switch> {
 		) {
 			return;
 		}
-		this.sound(logic, `GAME/SOUNDZ/SWITCHDOWN`);
+		if (!traits.includes('checkpointSwitch')) {
+			this.sound(logic, `GAME/SOUNDZ/SWITCHDOWN`);
+		}
 		this.setPressed(logic, true);
 		const triggers = this.registry.links.get(logic.coord) as (Trigger | CheckpointFlag)[];
 		if (traits.includes('timeSwitch')) {
@@ -180,7 +182,9 @@ export class SwitchController extends LogicController<Switch> {
 		if (!traits.includes('lowSwitch')) {
 			return;
 		}
-		this.sound(logic, `GAME/SOUNDZ/SWITCHUP`);
+		if (!traits.includes('checkpointSwitch')) {
+			this.sound(logic, `GAME/SOUNDZ/SWITCHUP`);
+		}
 		this.setPressed(logic, false);
 		const triggers = this.registry.links.get(logic.coord) as Trigger[];
 		if (traits.includes('purpleSwitch')) {

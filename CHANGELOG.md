@@ -125,3 +125,20 @@ Initial release!
 -   Green wormholez fixed again
 -   Gunhat attack time fix
 -   Reduced volume of ambient sounds
+
+## 3.1.4
+
+-   Ressurect gruntz to 5 HP
+-   Rockz should take 1 second to throw
+-   Checkpoint switch should make press noises
+-   Don't continue hurting grunt when they start moving off the spikez
+-   Fix timing problems with bridges
+-   Loading bar fills correctly
+-   Timebomb gruntz try to walk away from their timebomb
+-   Fix picking up nerfgun voice
+-   Roidz don't deplete stamina correctly
+-   Glovez on roidz can knock back enemies without getting hit
+-   Gruntz don't try and attack enemies with 0 health before they start their die animation
+-   Puddlez should snap to center
+-   Scroll map when a friendly grunt enters a wormhole
+-   Fix megaphone voice issue

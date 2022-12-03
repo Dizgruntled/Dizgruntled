@@ -176,7 +176,11 @@ const builders = {
 		};
 	},
 	GruntPuddle(logic: LogicRez, data: RezFile) {
-		return { kind: 'GruntPuddle', color: COLORS[data.readPoints()] };
+		return {
+			kind: 'GruntPuddle',
+			color: COLORS[data.readPoints()],
+			position: snapPosition(data.readPosition()),
+		};
 	},
 	GruntStartingPoint(logic: LogicRez, data: RezFile) {
 		const ai = AI[data.readPoints()];

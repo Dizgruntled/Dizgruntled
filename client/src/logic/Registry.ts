@@ -66,6 +66,12 @@ export interface SpeakEffect {
 export interface SaveEffect {
 	kind: 'Save';
 }
+
+export interface ScrollEffect {
+	kind: 'Scroll';
+	position: Point;
+}
+
 export interface WinEffect {
 	kind: 'Win';
 }
@@ -74,6 +80,7 @@ export type Effect =
 	| AnimateEffect
 	| HelpEffect
 	| SoundEffect
+	| ScrollEffect
 	| ClearSoundEffect
 	| SpeakEffect
 	| SaveEffect
@@ -220,6 +227,20 @@ export class Registry {
 			}
 		}
 		return [...grunts];
+	}
+	getLogicsNear<T extends BaseLogic>(coord: Point, offset = 1, kind?: T['kind']): T[] {
+		const logics = new Set<T>();
+		for (let x = -offset; x <= offset; x++) {
+			for (let y = -offset; y <= offset; y++) {
+				const tile = pointAdd(coord, { x, y });
+				this.tileLogics.get(tile)?.forEach(logic => {
+					if (kind == undefined || logic.kind == kind) {
+						logics.add(logic as T);
+					}
+				});
+			}
+		}
+		return [...logics];
 	}
 	canMoveBetween(from: Point, to: Point) {
 		const distance = getDistance(from, to);
