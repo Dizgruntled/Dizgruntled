@@ -164,6 +164,7 @@ export class SwitchController extends LogicController<Switch> {
 			links: [],
 		};
 		this.registry.redPyramids.forEach(point => {
+			pyramidLogic.coord = point;
 			pyramidLogic.position = coordToPosition(point);
 			this.controllers.Trigger.toggle(pyramidLogic);
 		});
