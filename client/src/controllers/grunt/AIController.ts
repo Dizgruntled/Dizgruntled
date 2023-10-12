@@ -129,6 +129,11 @@ export class AIController extends LogicController<Grunt> {
 					return;
 				}
 				break;
+			case 'Gauntletz':
+				if (this.breakRocks(logic)) {
+					return;
+				}
+				break;
 			case 'ObjectGuard':
 				if (this.guardObject(logic)) {
 					return;
@@ -273,6 +278,30 @@ export class AIController extends LogicController<Grunt> {
 			return false;
 		}
 		const tiles = this.findNearbyTiles(logic, ['mound']);
+		for (let i = 0; i < tiles.length; i++) {
+			// Choose a random tile
+			const index = this.registry.getRandomAt(i, tiles.length, logic.position);
+			const temp = tiles[i];
+			tiles[i] = tiles[index];
+			tiles[index] = temp;
+			const target = tiles[0];
+			const flood = this.Grunt.getFlood(logic, target);
+			if (flood.findPath(logic.coord)) {
+				return this.Move.walk(logic, {
+					mesh: flood.getMesh(),
+					target,
+					useTool: true,
+					useToy: false,
+				});
+			}
+		}
+		return false;
+	}
+	breakRocks(logic: Grunt) {
+		if (logic.stamina < 20) {
+			return false;
+		}
+		const tiles = this.findNearbyTiles(logic, ['break']);
 		for (let i = 0; i < tiles.length; i++) {
 			// Choose a random tile
 			const index = this.registry.getRandomAt(i, tiles.length, logic.position);
