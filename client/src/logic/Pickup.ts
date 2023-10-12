@@ -99,7 +99,12 @@ export function getPickupItemFromImage(image: string) {
 	const graphic = image.substring(image.lastIndexOf('/') + 1);
 	const [, type, item] = graphic.split('_');
 	if (!item) {
-		return type;
+		if (!type) {
+			// TOYBOX
+			return graphic;
+		} else {
+			return type;
+		}
 	} else {
 		if (type == 'TOOLZ') {
 			const cutZ =
