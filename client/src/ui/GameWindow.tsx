@@ -164,7 +164,7 @@ export function GameWindow({ fullscreen, setFullscreen }: Props) {
 				/>
 			)}
 			<TopBar>
-				Dizgruntled 3.1.4{level ? ` - ${level}` : ''}
+				Dizgruntled 3.1.5{level ? ` - ${level}` : ''}
 				<TopButtons>
 					<TopButton
 						src="assets/Music.svg"

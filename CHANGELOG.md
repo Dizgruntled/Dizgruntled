@@ -142,3 +142,9 @@ Initial release!
 -   Puddlez should snap to center
 -   Scroll map when a friendly grunt enters a wormhole
 -   Fix megaphone voice issue
+
+## 3.1.5
+
+-   Fix red pyramidz (@IonPostglacial)
+-   Fix toybox logic loading
+-   Gauntletz grunt AI
